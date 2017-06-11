@@ -127,6 +127,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT picture1.png
 INPUT picture2.png
+INPUT picture3.png
+INPUT picture4.png
 INPUT Report.bbl
 INPUT Report.bbl
 INPUT Report.aux

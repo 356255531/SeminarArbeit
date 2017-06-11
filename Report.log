@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.13)  11 JUN 2017 00:59
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.13)  11 JUN 2017 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -393,41 +393,64 @@ File: picture1.png Graphic file (type QTm)
 <use  "picture1.png" >
 File: picture2.png Graphic file (type QTm)
  <use  "picture2.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--506
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 527--528
-\OT1/ptm/m/n/10 like-li-hood com-pu-ta-tion much more dif-fi-cult (be-cause of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 527--528
+Underfull \hbox (badness 10000) in paragraph at lines 511--512
 
  []
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 529--530
+\OT1/ptm/m/n/10 like-li-hood com-pu-ta-tion much more dif-fi-cult (be-cause of
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
-(./Report.bbl
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 552--553
+\OT1/ptm/m/n/10 term we want to max-i-mize plus an er-ror term, which
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--559
+
+ []
+
+File: picture3.png Graphic file (type QTm)
+<use  "picture3.png" >
+File: picture4.png Graphic file (type QTm)
+ <use  "picture4.png" > [3] (./Report.bbl
 Underfull \hbox (badness 1389) in paragraph at lines 30--32
 []\OT1/ptm/m/n/8 C. Do-er-sch, ``Tu-to-rial on vari-a-tional au-toen-coders,'' 
 \OT1/ptm/m/it/8 arXiv preprint
@@ -445,18 +468,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] (./Report.aux) )
+[4
+
+] (./Report.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 3892 strings out of 493591
- 61326 string characters out of 6143545
- 144252 words of memory out of 5000000
- 7264 multiletter control sequences out of 15000+600000
+ 3898 strings out of 493591
+ 61388 string characters out of 6143545
+ 145268 words of memory out of 5000000
+ 7268 multiletter control sequences out of 15000+600000
  30307 words of font info for 75 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 33i,20n,24p,1076b,1826s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,20n,24p,1076b,1764s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Report.pdf (3 pages).
+Output written on Report.pdf (4 pages).

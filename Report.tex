@@ -8,7 +8,7 @@
 %%
 %% This is a skeleton file demonstrating the use of IEEEtran.cls
 %% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
-%%
+%%\\
 %% Support sites:
 %% http://www.michaelshell.org/tex/ieeetran/
 %% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
@@ -16,7 +16,7 @@
 %% http://www.ieee.org/
 
 %%*************************************************************************
-%% Legal Notice:
+%% Legal Notice:6
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
 %% FITNESS FOR A PARTICULAR PURPOSE! 
@@ -478,15 +478,17 @@ Since for discriminant model there are already lots of efficient computational a
   L(\boldsymbol{v}\ |\ \boldsymbol{\theta}) = \int_{\boldsymbol{h}}p(\boldsymbol{v} \ |\ \boldsymbol{h}, \boldsymbol{\theta})p(\boldsymbol{h}\ |\ \boldsymbol{\theta})\mathrm{d}\boldsymbol{h}.
 \end{equation}
 Simple graphical models remain the computation of posterior $p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ still solvable e.g. RBM (see fig. 1). Unfortunately, most applicable graphical model usually have interactions between their latent variables and thus also have intractable posterior distribution (see fig. 2), it means that the v-structure and the intractable edge between the latent varialbes$p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ make the posterior distribution intractable. Consequently, the computational expense rise dramatically and it is almost impossible to finish the computations of posterior in a feasible training time. However, with approximation inference, we are given a powerful weapon and then able to solve this problem.
-\begin{figure}[!htb]\centering
-   \begin{minipage}{0.2125\textwidth}
-     \frame{\includegraphics[width=\linewidth]{picture1.png}}
-     \caption{RBM: every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}\label{pic_1}
-   \end{minipage}
-   \begin {minipage}{0.25\textwidth}
-     \frame{\includegraphics[width=\linewidth]{picture2.png}}
-     \caption{Models with v-structure and edge between latent variables: the posterior distribution are intractable because of the interaction between latent variables}\label{pic_2}
-   \end{minipage}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.8]{picture1.png}
+     \caption{RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}\label{pic_1}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.8]{picture2.png}
+     \caption{Models with v-structure and edge between latent variables: The posterior distribution are intractable because of the interaction between latent variables}
+     \label{pic_2}
 \end{figure}
 \subsection{MAP Inference}
 As shown in (2), when training a probablistic model e.g. a generative model, we are always interested in computing the data distribution by integral over a set latent variables, namely inference. However, integral over all latent variables could be computationally expensive and should be therefore avoided in the real implementation. A solution to this problem is to computer the most likely latent variable $\boldsymbol{h^*}$, rather than integral over all possible latent variables. Because in practice, for most $\boldsymbol{h}$, $P(\boldsymbol{v} |\boldsymbol{h})$ will be nearly zero, and hence contribute almost nothing to the calculation of likelihood $p(\boldsymbol{v})$.\cite{Goodfellow-et-al-2016}\cite{doersch2016tutorial}\\
@@ -529,25 +531,45 @@ While the intractation between latent variables make the likelihood computation 
 We begin with the deriviation of the new objectvie function from the definition of KL Divergence between the distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ and the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$ for some arbitary $q$, then we get the $\log p(\boldsymbol{v}\ |\ \boldsymbol{h})$ and $\log p(\boldsymbol{h})$ term after applying Bayes rule to $\log p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Here we can take the $\log p(\boldsymbol{v})$ term out of the expectation since it has no dependency with $\boldsymbol{h}$.\\
 \begin{equation}
   \begin{split}
-  	& D_{KL}\bigg[q(\boldsymbol{h})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg] \\
-  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log \frac{q(\boldsymbol{h})}{p(\boldsymbol{h}\ |\ \boldsymbol{v})}\bigg]\\
-  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg]\\
+  	& D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg] \\
+  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log \frac{q(\boldsymbol{h}\ |\ \boldsymbol{v})}{p(\boldsymbol{h}\ |\ \boldsymbol{v})}\bigg]\\
+  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}\ |\ \boldsymbol{v}) - \frac{\log p(\boldsymbol{h}, \boldsymbol{v})}{}\bigg]\\
     & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v},\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
     & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v},\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
     & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v}\ |\ \boldsymbol{h})p(\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
     & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log p(\boldsymbol{v}\ |\ \boldsymbol{h}) - \log p(\boldsymbol{h})\bigg] + \log p(\boldsymbol{v})\\
   \end{split}  
 \end{equation}
+
 After reforming the expectation term into KL divergence and reranging the formula, it yields the new objective function,
 \begin{equation}
   \begin{split}
-  J(\theta)&=\log p(\boldsymbol{v}) - D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg]\\
-  &=\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]-D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h})\bigg]
+	J &= \log p(\boldsymbol{v}) - D_{KL}\bigg[q(\boldsymbol{h})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg]\\
+  &=\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]-D_{KL}\bigg[q(\boldsymbol{h})\ ||\ p(\boldsymbol{h})\bigg].
   \end{split}  
 \end{equation}
+
+The left part of the equation has the log-likelihood $p(\boldsymbol{v})$ term we want to maximize plus an error term, which measures the difference of the distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ and the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Hence, the difference between our new objective function and the log-likelihood is decided by the KL divergence and these two are equal if and only if distribution $q$ is exactly the same as $p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Because the KL divergence is always non-negative and this new objective function is therefore smaller than or at most equal to the real log-likelihood. In this case, the new objective function is defined as a lower bound $\mathcal{L}(\boldsymbol{v}, \theta, q)$ of log-likelihood function and this lower bound is called the $evidence\ lower\ bound$(ELBO).\\
+
+It is not hard to see, our new objective function is much easier to compute for some appropriate choice of distribution $q$. For any distribution $q$, our objective function is guaranteed to be the lower bound of log-likelihood and with a better approximation of posterior the lower bound will be closer to the real log-likelihood.
 \subsection{Core Idea}
+As shown in previous subsection, we can transfer the inference to a new optimization problem, in which we should find a proper distribution $q$ that maximize our objective function derived in the previous subsection. \\
+
+In other words, the original intractable inference problem, which explizitly maximize the log-likelihood, can be thought as a new procedure that is less computational expensive  by using a approximated version of posterior from a restricted search family, which is imperfect approximate and may not completely maximize $\mathcal{L}$ but can improve it with a significantly amount.\\
+
+To sumarize, the core idea behind variational inference is that we can maxmize the lower bound of log-likelihood over a restricted space of distribution $q$. This space should be chosen so that it makes the computation 
 \subsection{Variational Auto-Encoder}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.4]{picture3.png}
+     \caption{RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}\label{pic_3}
+\end{figure}
 \section{Experiment}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.25]{picture4.png}
+     \caption{RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}\label{pic_4}
+\end{figure}
 % needed in second column of first page if using \IEEEpubid{}
 %\IEEEpubidadjcol
 
