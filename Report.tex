@@ -420,7 +420,7 @@ Email: hanzw356255531@icloud.com}
 % Even with the lineraly growing of state or action number, the computational expense increases exponentially. Hence, a sparse presentation of Q-Functions would be one smart solution to this kind of problem. 
 \begin{abstract}
 %\boldmath
-This is a seminar work from Chair of Medientechnik, Technical University of Munich. Most of this work is based an the deep learning book from MIT. In this seminar work, an overview of approximation inference and how this technique is applied to solve intractable problem of posterior in probabilistic model, is given. We begin with the introduction of the intractable problems arised in the inference of a probablistic model and then present a new objective function for the optimization problem. After that, we show the great simplification of the optimization problem with the new objective function instead of the old one with mathematical proof. At the end, a CNN-based variational auco encoder is presented to show that with this technique a deep generative model, whose latent variables are gaussian distributed, can be train in a feasible time.\\
+This is a seminar work from Chair of Medientechnik, Technical University of Munich. Most of this work is based an the deep learning book from MIT. In this seminar work, an overview of approximation inference and how this technique is applied to solve intractable problem of posterior in probabilistic model, is given. We begin with the introduction of the intractable problems raised in the inference of a probabilistic model and then present a new objective function for the optimization problem. After that, we show the great simplification of the optimization problem with the new objective function instead of the old one with mathematical proof. At the end, a CNN-based variational auto encoder is presented to show that with this technique a deep generative model, whose latent variables are gaussian distributed, can be train in a feasible time.\\
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -465,7 +465,7 @@ The goal of this seminar work is to present an overview about the approximate in
 % What is inference and why we need inference
 In machine learning community, discriminant method and generative method are two main approaches to solve specific learning tasks with large data sets, their models are therefore named as discriminant models (SVM, Logistic Regression) and generative models (GMM, HMM), respectively. \\
 
-The goal of discriminant models is prediction, in other words the disciminant model learns the \textbf{conditional probability distribution} $p(\boldsymbol{c} | \boldsymbol{o})$, which is the conditional probability of class vector $\boldsymbol{c}$ given observation vector $\boldsymbol{o}$, and the model should be able to predict the exact class of a new coming observation according to a predefined criterium (e.g. the conditional probability is higher than a threashold) afterwards. While the generative model does inference, that is to learn the \textbf{joint distribution} $p(\boldsymbol{c},\boldsymbol{o})$ of the given data sets. Since the generative model knowns the joint distribution of the data sets, so conditional probability can be easily derived by dividing the joint distribution with prior according to bayes rule, 
+The goal of discriminant models is prediction, in other words the discriminant model learns the \textbf{conditional probability distribution} $p(\boldsymbol{c} | \boldsymbol{o})$, which is the conditional probability of class vector $\boldsymbol{c}$ given observation vector $\boldsymbol{o}$, and the model should be able to predict the exact class of a new coming observation according to a predefined criteria (e.g. the conditional probability is higher than a threshold) afterwards. While the generative model does inference, that is to learn the \textbf{joint distribution} $p(\boldsymbol{c},\boldsymbol{o})$ of the given data sets. Since the generative model knows the joint distribution of the data sets, so conditional probability can be easily derived by dividing the joint distribution with prior according to Bayes rule, 
 \begin{equation}
 p(\boldsymbol{c} | \boldsymbol{o}) = \frac{p(\boldsymbol{c}, \boldsymbol{o})}{p(\boldsymbol{o})}
 \end{equation} From the above example, we can see that inference is a generalization form of prediction. Therefore, generative model has better representation ability and a faster convergence. The drawbacks is that the training of generative model is more computational complex.\\
@@ -473,11 +473,11 @@ p(\boldsymbol{c} | \boldsymbol{o}) = \frac{p(\boldsymbol{c}, \boldsymbol{o})}{p(
 We define here the problem setting for the rest of this seminar work. Our inference problems are built so that, the models are consisting of visible variables $\boldsymbol{v}$ and latent variables $\boldsymbol{h}$. We would like to maximize likelihood of the given dataset $\boldsymbol{x}$.\\
 
 % Why we could not apply normal inference in intractable models
-Since for discriminant model there are already lots of efficient computational algorithms and this seminar work is mainly about approximate inference, in the rest of this seminar work we mainly focus on the application of approximate inference in generative models. Consider the standard training procedure of a generative model, which has visible variables $\boldsymbol{v}$ and latent variables $\boldsymbol{h}$, as first step we need to compute the likelihood by marginalizethe its visible variables over latent variable as follows.
+Since for discriminant model there are already lots of efficient computational algorithms and this seminar work is mainly about approximate inference, in the rest of this seminar work we mainly focus on the application of approximate inference in generative models. Consider the standard training procedure of a generative model, which has visible variables $\boldsymbol{v}$ and latent variables $\boldsymbol{h}$, as first step we need to compute the likelihood by marninalize the its visible variables over latent variable as follows.
 \begin{equation}
   L(\boldsymbol{v}\ |\ \boldsymbol{\theta}) = \int_{\boldsymbol{h}}p(\boldsymbol{v} \ |\ \boldsymbol{h}, \boldsymbol{\theta})p(\boldsymbol{h}\ |\ \boldsymbol{\theta})\mathrm{d}\boldsymbol{h}.
 \end{equation}
-Simple graphical models remain the computation of posterior $p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ still solvable e.g. RBM (see fig. 1). Unfortunately, most applicable graphical model usually have interactions between their latent variables and thus also have intractable posterior distribution (see fig. 2), it means that the v-structure and the intractable edge between the latent varialbes$p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ make the posterior distribution intractable. Consequently, the computational expense rise dramatically and it is almost impossible to finish the computations of posterior in a feasible training time. However, with approximation inference, we are given a powerful weapon and then able to solve this problem.
+Simple graphical models remain the computation of posterior $p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ still solvable e.g. RBM (see fig. 1). Unfortunately, most applicable graphical model usually have interactions between their latent variables and thus also have intractable posterior distribution (see fig. 2), it means that the v-structure and the intractable edge between the latent variables$p(\boldsymbol{h}\ |\ \boldsymbol{\theta})$ make the posterior distribution intractable. Consequently, the computational expense rise dramatically and it is almost impossible to finish the computations of posterior in a feasible training time. However, with approximation inference, we are given a powerful weapon and then able to solve this problem.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.8]{picture1.png}
@@ -491,7 +491,7 @@ Simple graphical models remain the computation of posterior $p(\boldsymbol{h}\ |
      \label{pic_2}
 \end{figure}
 \subsection{MAP Inference}
-As shown in (2), when training a probablistic model e.g. a generative model, we are always interested in computing the data distribution by integral over a set latent variables, namely inference. However, integral over all latent variables could be computationally expensive and should be therefore avoided in the real implementation. A solution to this problem is to computer the most likely latent variable $\boldsymbol{h^*}$, rather than integral over all possible latent variables. Because in practice, for most $\boldsymbol{h}$, $P(\boldsymbol{v} |\boldsymbol{h})$ will be nearly zero, and hence contribute almost nothing to the calculation of likelihood $p(\boldsymbol{v})$.\cite{Goodfellow-et-al-2016}\cite{doersch2016tutorial}\\
+As shown in (2), when training a probabilistic model e.g. a generative model, we are always interested in computing the data distribution by integral over a set latent variables, namely inference. However, integral over all latent variables could be computationally expensive and should be therefore avoided in the real implementation. A solution to this problem is to computer the most likely latent variable $\boldsymbol{h^*}$, rather than integral over all possible latent variables. Because in practice, for most $\boldsymbol{h}$, $P(\boldsymbol{v} |\boldsymbol{h})$ will be nearly zero, and hence contribute almost nothing to the calculation of likelihood $p(\boldsymbol{v})$.\cite{Goodfellow-et-al-2016}\cite{doersch2016tutorial}\\
 
 Mathmatically, it is equal to an optimization problem as follows,
 \begin{equation}
@@ -508,27 +508,27 @@ This method is known as maximum a posteriori inference (MAP).\\
 
 
 \subsection{EM Algorithm}
-Expectation Maximization (EM) \cite{moon1996expectation} algorithm is a standard iterative learning algorithm, which is based on maximum likelihood estimation and especially designed for models with latent varialbes. \\
+Expectation Maximization (EM) \cite{moon1996expectation} algorithm is a standard iterative learning algorithm, which is based on maximum likelihood estimation and especially designed for models with latent variables. \\
 
-EM algorithm includes two steps and runs untill the predined convergent criterium is satisfied,
+EM algorithm includes two steps and runs until the predefined convergent criteria is satisfied,
 \subsubsection{Initialization}
-Initilize the model parameters $\boldsymbol{\theta}_0$
-\subsubsection{Expection Step}
+Initialize the model parameters $\boldsymbol{\theta}_0$
+\subsubsection{Expectation Step}
 Compute the objective function (sum of ELBO on all data index) according to (3), 
 \begin{equation}
 \sum\mathcal{L}(\boldsymbol{v}^{(i)}, \boldsymbol{\theta}, q).
 \end{equation}
 Note, set $q(\boldsymbol{h}^{(i)}\ |\ \boldsymbol{v})$ for all the index of the data set we need to train on and remain distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ always equal to $p(\boldsymbol{h}\ |\ \boldsymbol{v}, \boldsymbol{\theta}_0)$ while updating $p(\boldsymbol{h}\ |\ \boldsymbol{v}, \boldsymbol{\theta}_t)$ with $\theta_t$, where $t$ is the number of current iteration.
 \subsubsection{Maximization Step}
-Maximize the objective function (sum of ELBO on all data index) over model parameters $\boldsymbol{\theta}_t$ with arbitary opimization algorithm.
-\subsubsection{Repeat 2), 3) untill converge}
+Maximize the objective function (sum of ELBO on all data index) over model parameters $\boldsymbol{\theta}_t$ with arbitrary optimization algorithm.
+\subsubsection{Repeat 2), 3) until converge}
 \section{Variational Inference}
 \subsection{Objective function}
 Many difficult sample based inference problems which make use of observations can be reconstructed as optimization problems and they maximize the log-likelihood function of the given datasets.\cite{doersch2016tutorial}\cite{anzai2012pattern} Approximate Inference algorithm will then simplify the underlying optimization problems by using the approximation of posteriors. \\
 
-While the intractation between latent variables make the likelihood computation much more difficult (because of integral), instead of directly calculating and optimizing the log-likelihood, we introduce a new objective function here, which it is easy to compute and optimize if a distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ could be found. This means that we need to find a new distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ which can make a good approximation of the posterior. Or in other words, it is a function, which takes a vetor $\boldsymbol{v}$ as visible variable and give us a distribution over the latent variable $\boldsymbol{h}$ that are likely to produce the visible variable $\boldsymbol{v}$. Ideally, the distribution of $\boldsymbol{h}$ under $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ is much simpler than the one under the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$. This trick makes the computation of $\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]$ significant much easier.\\
+While the intractability between latent variables make the likelihood computation much more difficult (because of integral), instead of directly calculating and optimizing the log-likelihood, we introduce a new objective function here, which it is easy to compute and optimize if a distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ could be found. This means that we need to find a new distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ which can make a good approximation of the posterior. Or in other words, it is a function, which takes a vector $\boldsymbol{v}$ as visible variable and give us a distribution over the latent variable $\boldsymbol{h}$ that are likely to produce the visible variable $\boldsymbol{v}$. Ideally, the distribution of $\boldsymbol{h}$ under $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ is much simpler than the one under the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$. This trick makes the computation of $\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]$ significant much easier.\\
 
-We begin with the deriviation of the new objectvie function from the definition of KL Divergence between the distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ and the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$ for some arbitary $q$, then we get the $\log p(\boldsymbol{v}\ |\ \boldsymbol{h})$ and $\log p(\boldsymbol{h})$ term after applying Bayes rule to $\log p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Here we can take the $\log p(\boldsymbol{v})$ term out of the expectation since it has no dependency with $\boldsymbol{h}$.\\
+We begin with the derivation of the new objective function from the definition of KL Divergence between the distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ and the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$ for some arbitrary $q$, then we get the $\log p(\boldsymbol{v}\ |\ \boldsymbol{h})$ and $\log p(\boldsymbol{h})$ term after applying Bayes rule to $\log p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Here we can take the $\log p(\boldsymbol{v})$ term out of the expectation since it has no dependency with $\boldsymbol{h}$.\\
 \begin{equation}
   \begin{split}
   	& D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg] \\
@@ -555,9 +555,9 @@ It is not hard to see, our new objective function is much easier to compute for 
 \subsection{Core Idea}
 As shown in previous subsection, we can transfer the inference to a new optimization problem, in which we should find a proper distribution $q$ that maximize our objective function derived in the previous subsection. \\
 
-In other words, the original intractable inference problem, which explizitly maximize the log-likelihood, can be thought as a new procedure that is less computational expensive  by using a approximated version of posterior from a restricted search family, which is imperfect approximate and may not completely maximize $\mathcal{L}$ but can improve it with a significantly amount.\\
+In other words, the original intractable inference problem, which explicitly maximize the log-likelihood, can be thought as a new procedure that is less computational expensive  by using a approximated version of posterior from a restricted search family, which is imperfect approximate and may not completely maximize $\mathcal{L}$ but can improve it with a significantly amount.\\
 
-To sumarize, the core idea behind variational inference is that we can maxmize the lower bound of log-likelihood over a restricted space of distribution $q$. This space should be chosen so that it makes the computation 
+To summarize, the core idea behind variational inference is that we can maximize the lower bound of log-likelihood over a restricted space of distribution $q$. This space should be chosen so that it makes the computation 
 \subsection{Variational Auto-Encoder}
 \begin{figure}[ht]
   \centering
