@@ -420,6 +420,7 @@ Email: hanzw356255531@icloud.com}
 % Even with the lineraly growing of state or action number, the computational expense increases exponentially. Hence, a sparse presentation of Q-Functions would be one smart solution to this kind of problem. 
 \begin{abstract}
 %\boldmath
+This is a seminar work from Chair of Medientechnik, Technical University of Munich. Most of this work is based an the deep learning book from MIT. In this seminar work, an overview of approximation inference and how this technique is applied to solve intractable problem of posterior in probabilistic model, is given. We begin with the introduction of the intractable problems arised in the inference of a probablistic model and then present a new objective function for the optimization problem. After that, we show the great simplification of the optimization problem with the new objective function instead of the old one with mathematical proof. At the end, a CNN-based variational auco encoder is presented to show that with this technique a deep generative model, whose latent variables are gaussian distributed, can be train in a feasible time.\\
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -430,6 +431,7 @@ Email: hanzw356255531@icloud.com}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
+Approximate Inferience, Variational Inference, Generative Model, Auto Encoder.
 \end{IEEEkeywords}
 
 
@@ -452,7 +454,7 @@ Email: hanzw356255531@icloud.com}
 \section{Introduction}
 In many statistical learning problems especially the training of a generative model, inference is considered as the very first step to train the probabilistic models before performing specific optimization method like maximum likelihood learning.  For some simple graphical models like Restricted Boltzmann Machines (RBM) and probabilistic PCA, inference can be simply done by computing the posterior and taking the expectation over it \cite{Goodfellow-et-al-2016}. Those computations are critical process and are also basis of training step afterwards. However, with some graphical models have multiple layers like Deep Belief Network or intractable connections between the latent variables, the exact direct computation of inference in a constraint time will cost  an exponential amount of time. Consequently, a precise evaluation of inference is infeasible because of the explosion of computational complexity and the limited computational power.\\
 
-In the context of deep learning, the problem setting can be organized in a more specific way. We assume that we have a set of visible variables $\boldsymbol{v}$, which can be seen as the input of a one layer RBM and a set of latent variables $\boldsymbol{h}$, the corresponding output. The goal of inference on such model is to compute the posterior $p(\boldsymbol{h} | \boldsymbol{v})$ analytically. Unfortunately, the main challenge is usually the result of the intractable inference problems due to several interactions between latent variables in a structured graphical model. In other words, it's definitely inefficient, if we still calculate the posterior in the traditional way when the latent variables are not independent anymore\\
+In the context of deep learning, the problem setting can be organized in a more specific way. We assume that we have a set of visible variables $\boldsymbol{v}$, which can be seen as the input of a one layer RBM and a set of latent variables $\boldsymbol{h}$, the corresponding output. The goal of inference on such model is to compute the posterior $p(\boldsymbol{h} | \boldsymbol{v})$ analytically. Unfortunately, the main challenge is usually the result of the intractable inference problems due to several interactions between latent variables in a structured graphical model. In other words, it's definitely inefficient, if we still calculate the posterior in the traditional way when the latent variables are not independent anymore.\\
 
 One possibility how we deal with these kind of intractable inference problems is variational inference. Instead of trivially integral over the latent variables, we are going to find a distribution to approximate the posterior as much as possible and a lower bound of log likelihood function with respect to this approximate posterior. Finally, maximize this lower bound over model variables. For a perfect approximation $q$ of posterior $p(\boldsymbol{h} | \boldsymbol{v})$, the lower bound is exactly the log likelihood function.\\
 
@@ -520,12 +522,29 @@ Maximize the objective function (sum of ELBO on all data index) over model param
 \subsubsection{Repeat 2), 3) untill converge}
 \section{Variational Inference}
 \subsection{Objective function}
-Many difficult sample based inference problems that make use of observations can be reconstructed as optimization problems, which maximize the log-likelihood function of the given datasets.\cite{doersch2016tutorial}\cite{anzai2012pattern} Approximate Inference algorithm will then simplify the underlying optimization problems by using the approximation of posteriors. \\
+Many difficult sample based inference problems which make use of observations can be reconstructed as optimization problems and they maximize the log-likelihood function of the given datasets.\cite{doersch2016tutorial}\cite{anzai2012pattern} Approximate Inference algorithm will then simplify the underlying optimization problems by using the approximation of posteriors. \\
 
-While the intractation between latent variables make the likelihood computation much more difficult (integral), instead of directly calculating and optimizing the log-likelihood, we introduce a new objective function here, which it is easy to compute and optimize if a distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ could be found. This means that we need to find a new distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ which can approximate the posterior distribution well and take a value of X and give us a distribution over z values that are likely to produce X. Hopefully the space of z values that are likely under Q will be much smaller than the space of all z’s that are likely under the prior P(z). This lets us, for example, compute Ez∼QP(X|z) relatively easily. However, if z is sampled from an arbitrary distribution
-7
- 
-with PDF Q(z), which is not N (0, I), then how does that help us optimize P(X)? The first thing we need to do is relate Ez∼QP(X|z) and P(X).
+While the intractation between latent variables make the likelihood computation much more difficult (because of integral), instead of directly calculating and optimizing the log-likelihood, we introduce a new objective function here, which it is easy to compute and optimize if a distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ could be found. This means that we need to find a new distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ which can make a good approximation of the posterior. Or in other words, it is a function, which takes a vetor $\boldsymbol{v}$ as visible variable and give us a distribution over the latent variable $\boldsymbol{h}$ that are likely to produce the visible variable $\boldsymbol{v}$. Ideally, the distribution of $\boldsymbol{h}$ under $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ is much simpler than the one under the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$. This trick makes the computation of $\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]$ significant much easier.\\
+
+We begin with the deriviation of the new objectvie function from the definition of KL Divergence between the distribution $q(\boldsymbol{h}\ |\ \boldsymbol{v})$ and the posterior $p(\boldsymbol{h}\ |\ \boldsymbol{v})$ for some arbitary $q$, then we get the $\log p(\boldsymbol{v}\ |\ \boldsymbol{h})$ and $\log p(\boldsymbol{h})$ term after applying Bayes rule to $\log p(\boldsymbol{h}\ |\ \boldsymbol{v})$. Here we can take the $\log p(\boldsymbol{v})$ term out of the expectation since it has no dependency with $\boldsymbol{h}$.\\
+\begin{equation}
+  \begin{split}
+  	& D_{KL}\bigg[q(\boldsymbol{h})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg] \\
+  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log \frac{q(\boldsymbol{h})}{p(\boldsymbol{h}\ |\ \boldsymbol{v})}\bigg]\\
+  	& = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg]\\
+    & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v},\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
+    & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v},\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
+    & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log \frac{p(\boldsymbol{v}\ |\ \boldsymbol{h})p(\boldsymbol{h})}{p(\boldsymbol{v})}\bigg]\\
+    & = \mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log q(\boldsymbol{h}) - \log p(\boldsymbol{v}\ |\ \boldsymbol{h}) - \log p(\boldsymbol{h})\bigg] + \log p(\boldsymbol{v})\\
+  \end{split}  
+\end{equation}
+After reforming the expectation term into KL divergence and reranging the formula, it yields the new objective function,
+\begin{equation}
+  \begin{split}
+  J(\theta)&=\log p(\boldsymbol{v}) - D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h}\ |\ \boldsymbol{v})\bigg]\\
+  &=\mathbb{E}_{\boldsymbol{h}\sim q}\bigg[\log p(\boldsymbol{v}\ |\ \boldsymbol{h})\bigg]-D_{KL}\bigg[q(\boldsymbol{h}\ |\ \boldsymbol{v})\ ||\ p(\boldsymbol{h})\bigg]
+  \end{split}  
+\end{equation}
 \subsection{Core Idea}
 \subsection{Variational Auto-Encoder}
 \section{Experiment}

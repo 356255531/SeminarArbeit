@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.13)  10 JUN 2017 18:33
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.13)  11 JUN 2017 00:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,55 +334,45 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen152
 \Gin@req@width=\dimen153
 )
-Underfull \hbox (badness 4899) in paragraph at lines 453--454
+Underfull \hbox (badness 4899) in paragraph at lines 455--456
 \OT1/ptm/m/n/10 spe-cific op-ti-miza-tion method like max-i-mum like-li-hood
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 453--454
+Underfull \hbox (badness 1735) in paragraph at lines 455--456
 \OT1/ptm/m/n/10 pro-cess and are also ba-sis of train-ing step af-ter-wards.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
-
- []
-
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 455.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 455.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 455.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 457.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 457.
 
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 457.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--465
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
@@ -390,33 +380,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
+
+ []
+
 File: picture1.png Graphic file (type QTm)
- <use  "picture1.png" >
+<use  "picture1.png" >
 File: picture2.png Graphic file (type QTm)
  <use  "picture2.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--504
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 509--510
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no ∼ in font ptmr7t!
-Missing character: There is no ∼ in font ptmr7t!
-[2] (./Report.bbl
+
+Underfull \hbox (badness 1675) in paragraph at lines 527--528
+\OT1/ptm/m/n/10 like-li-hood com-pu-ta-tion much more dif-fi-cult (be-cause of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+
+ []
+
+(./Report.bbl
 Underfull \hbox (badness 1389) in paragraph at lines 30--32
 []\OT1/ptm/m/n/8 C. Do-er-sch, ``Tu-to-rial on vari-a-tional au-toen-coders,'' 
 \OT1/ptm/m/it/8 arXiv preprint
@@ -442,10 +453,10 @@ Before submitting the final camera ready copy, remember to:
 Here is how much of TeX's memory you used:
  3892 strings out of 493591
  61326 string characters out of 6143545
- 139252 words of memory out of 5000000
+ 144252 words of memory out of 5000000
  7264 multiletter control sequences out of 15000+600000
  30307 words of font info for 75 fonts, out of 8000000 for 9000
  1350 hyphenation exceptions out of 8191
- 33i,20n,24p,988b,1826s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,20n,24p,1076b,1826s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Report.pdf (3 pages).
