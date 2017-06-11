@@ -38,4 +38,8 @@ T.~K. Moon, ``The expectation-maximization algorithm,'' \emph{IEEE Signal
 Y.~Anzai, \emph{Pattern recognition and machine learning}.\hskip 1em plus 0.5em
   minus 0.4em\relax Elsevier, 2012.
 
+\bibitem{kingma2013auto}
+D.~P. Kingma and M.~Welling, ``Auto-encoding variational bayes,'' \emph{arXiv
+  preprint arXiv:1312.6114}, 2013.
+
 \end{thebibliography}
