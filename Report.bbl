@@ -26,6 +26,11 @@ I.~Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}.\hskip 1em
   plus 0.5em minus 0.4em\relax MIT Press, 2016,
   \url{http://www.deeplearningbook.org}.
 
+\bibitem{ng2002discriminative}
+A.~Y. Ng and M.~I. Jordan, ``On discriminative vs. generative classifiers: A
+  comparison of logistic regression and naive bayes,'' \emph{Advances in neural
+  information processing systems}, vol.~2, pp. 841--848, 2002.
+
 \bibitem{doersch2016tutorial}
 C.~Doersch, ``Tutorial on variational autoencoders,'' \emph{arXiv preprint
   arXiv:1606.05908}, 2016.

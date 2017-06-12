@@ -1,41 +1,54 @@
 \relax 
 \citation{Goodfellow-et-al-2016}
+\citation{Goodfellow-et-al-2016}
+\citation{ng2002discriminative}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Background}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Inference}{1}}
 \citation{Goodfellow-et-al-2016}
+\citation{Goodfellow-et-al-2016}
+\citation{Goodfellow-et-al-2016}
 \citation{doersch2016tutorial}
 \citation{moon1996expectation}
+\citation{doersch2016tutorial}
+\citation{anzai2012pattern}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}}{2}}
 \newlabel{pic_1}{{1}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Models with v-structure and edge between latent variables: The posterior distribution are intractable because of the interaction between latent variables}}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Models with v-structure and edge between latent variables: The posterior distribution are intractable because of the interaction between latent variables\cite  {Goodfellow-et-al-2016}}}{2}}
 \newlabel{pic_2}{{2}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}MAP Inference}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}EM Algorithm}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}1}Initialization}{2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}2}Expectation Step}{2}}
-\citation{doersch2016tutorial}
-\citation{anzai2012pattern}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}3}Maximization Step}{3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}4}Repeat 2), 3) until converge}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Variational Inference}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Objective function}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}3}Maximization Step}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}4}Repeat 2), 3) until converge}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Variational Inference}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Objective function}{2}}
+\citation{kingma2013auto}
+\citation{kingma2013auto}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Core Idea}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Structure of Distribution $q$}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Structure of Approximated Posterior}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}1}Mean Field Approach}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}2}Deep Neural Network Approach}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Variational Auto-Encoder}{3}}
+\citation{doersch2016tutorial}
+\citation{doersch2016tutorial}
+\citation{kingma2013auto}
+\citation{kingma2013auto}
+\citation{kingma2013auto}
 \citation{kingma2013auto}
 \bibstyle{IEEEtran}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces VAE: $\boldsymbol  {\mu }$ and $\boldsymbol  {\sigma }$ are the mean and variance of the approximated posterior. The red part is "reparameterization trick" and the blue part is the loss function of the model.\cite  {doersch2016tutorial}}}{4}}
+\newlabel{pic_3}{{3}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiment}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Visualization of Learned MNIST dataset manifold for the generative model with two-dimensional latent space using AEVB \cite  {kingma2013auto}}}{4}}
+\newlabel{pic_4}{{4}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{4}}
 \bibdata{IEEEabrv,reference}
 \bibcite{Goodfellow-et-al-2016}{1}
-\bibcite{doersch2016tutorial}{2}
-\bibcite{moon1996expectation}{3}
-\bibcite{anzai2012pattern}{4}
-\bibcite{kingma2013auto}{5}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}1}Mean Field Approach}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}2}Deep Neural Network Approach}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Variational Auto-Encoder}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiment}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}}{4}}
-\newlabel{pic_3}{{3}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces RBM: Every latent variable is independent to each other since there is no connection between them. The posteriors are through factorization solvable.}}{4}}
-\newlabel{pic_4}{{4}{4}}
-\@writefile{toc}{\contentsline {section}{References}{4}}
+\bibcite{ng2002discriminative}{2}
+\bibcite{doersch2016tutorial}{3}
+\bibcite{moon1996expectation}{4}
+\bibcite{anzai2012pattern}{5}
+\bibcite{kingma2013auto}{6}
+\@writefile{toc}{\contentsline {section}{References}{5}}
